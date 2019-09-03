@@ -12,7 +12,7 @@ nsaspace = zeros(nrframes, dimx, dimy, dimz);
 
 % number of k-space points per repetition
 kpointsperframe = round(dimy*dimz*nrrepetitions/nrframes);
-app.TextMessage(strcat('k-points per frame =',{' '},num2str(kpointsperframe),' ...'));
+app.TextMessage(strcat('k-lines per frame =',{' '},num2str(kpointsperframe),' ...'));
 
 % sorting
 for t = 1:nrframes
