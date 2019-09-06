@@ -18,7 +18,7 @@ for i=1:nr_frames
     
     for j=1:dimx
         
-        app.ProgressViewField.Value = round(100*((i-1)*dimx+j)/(nr_frames*dimx));
+        app.ExportProgressViewField.Value = round(100*((i-1)*dimx+j)/(nr_frames*dimx));
         drawnow;
         
         dcm_header = generate_dicomheader_4D(parameters,i,j,dimx,dimy,dimz,dcmid);
