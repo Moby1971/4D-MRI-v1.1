@@ -26,8 +26,6 @@ for t = 1:nrframes
         
         for x = 1:dimx
             
-            
-            
             skspace(t,x,ky(w),kz(w)) = skspace(t,x,ky(w),kz(w)) + uskspace((w-1)*dimx+x);
             nsaspace(t,x,ky(w),kz(w)) = nsaspace(t,x,ky(w),kz(w)) + 1;
             
