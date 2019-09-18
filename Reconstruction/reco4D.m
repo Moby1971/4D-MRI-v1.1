@@ -1,5 +1,5 @@
 
-function images = reco4D(app,kspace,nsaspace,TV,Wavelet)
+function images = reco4D(app,kspace,nsaspace,TVxyz,TVtime,Wavelet)
 
 
 app.TextMessage('Reconstructing the data ...');
@@ -15,8 +15,12 @@ kspace_pics = permute(kspace,[2,3,4,5,6,7,8,9,10,11,1]);
 averages_pics = permute(nsaspace,[2,3,4,5,6,7,8,9,10,11,1]).^.5;
 
 % wavelet in spatial dimensions 2^1+2^2=6, total variation in time 2^10 = 1024
-picscommand = ['pics -RW:6:0:',num2str(Wavelet),' -RT:1024:0:',num2str(TV),' -p'];
-image_reg = bart(picscommand,averages_pics,kspace_pics,sense);
+% picscommand = ['pics -RW:7:0:',num2str(Wavelet),' -RT:7:0:',num2str(TVxyz),' -RT:1024:0:',num2str(TVtime),' -p'];
+% image_reg = bart(picscommand,averages_pics,kspace_pics,sense);
+
+picscommand = ['pics -RW:7:0:',num2str(Wavelet),' -RT:7:0:',num2str(TVxyz),' -RT:1024:0:',num2str(TVtime)];
+image_reg = bart(picscommand,kspace_pics,sense);
+
 
 app.TextMessage('Zerofilling to next power of 2 ...');
 
