@@ -12,9 +12,9 @@ movie = round(255*movie/max(movie(:)));
 % export movie to animated gif
 for idx = 1:number_of_frames
     if idx == 1
-        imwrite(uint8(rot90(squeeze(movie(idx,:,:)))),[gifexportpath,'/movie-',num2str(number_of_frames),'frames.gif'],'DelayTime',delay_time,'LoopCount',inf);
+        imwrite(uint8(rot90(squeeze(movie(idx,:,:)))),[gifexportpath,filesep,'movie-',num2str(number_of_frames),'frames.gif'],'DelayTime',delay_time,'LoopCount',inf);
     else
-        imwrite(uint8(rot90(squeeze(movie(idx,:,:)))),[gifexportpath,'/movie-',num2str(number_of_frames),'frames.gif'],'WriteMode','append','DelayTime',delay_time);
+        imwrite(uint8(rot90(squeeze(movie(idx,:,:)))),[gifexportpath,filesep,'movie-',num2str(number_of_frames),'frames.gif'],'WriteMode','append','DelayTime',delay_time);
     end
 end
             
